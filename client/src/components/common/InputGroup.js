@@ -41,7 +41,7 @@ const InputGroup=({
 InputGroup.propTypes={
     name:PropTypes.string.isRequired,
     placeholder:PropTypes.string,
-    value:PropTypes.string.isRequired,
+    value:PropTypes.string,
     icon:PropTypes.string,
     error:PropTypes.string,
     type:PropTypes.string.isRequired,

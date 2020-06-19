@@ -253,7 +253,7 @@ it will be added in end instead of that we use unshift method */
     .then(profile =>res.json(profile))
     
   })
-  .catch(err=>res.json(err));
+  
 });
 
 //@route DELETE  api/profile/education/:exp_id

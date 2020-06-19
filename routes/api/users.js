@@ -114,7 +114,7 @@ router.get('/current',passport.authenticate('jwt',{session:false}),
     res.json({
         id:req.user.id,
         name:req.user.name,
-        eamil:req.user.email
+        email:req.user.email
     });
 });
 

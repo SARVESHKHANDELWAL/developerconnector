@@ -5,6 +5,8 @@ import {getCurrentProfile,deleteAccount} from '../../actions/profileActions';
 import Spinner from './Spinner';
 import {Link} from 'react-router-dom';
 import ProfileActions from './ProfileActions';
+import Experience from './Experience';
+import Education from './Education';
 
 
 
@@ -34,10 +36,13 @@ import ProfileActions from './ProfileActions';
                   <div>
                   <p className="lead text-muted">Welcome,<Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
                   <ProfileActions/>
-                  { /*Todo:exp and edu */}
+                  {/*education and experience */}
+                  <Experience experience={profile.experience}/>
+                  <Education  education={profile.education}/>
                   <div style={{marginBottom:'60px'}}>
                   <button onClick={this.onDeleteClick.bind(this)}
-                  className="btn btn-danger">Delete My Account</button>
+                  className="btn btn-danger ">
+                  Delete My Account</button>
                   </div>
                   </div>
               )
@@ -46,9 +51,9 @@ import ProfileActions from './ProfileActions';
                //user do not have profile as its new user
                dashboardContent=
                <div>
-               <p className="lead text-muted">Welcome,{user.name}</p>
-               <p>You have noy yet a profile,Please add some info</p>
-               <Link to="/create-profile" className="btn btn-lg btn-info">
+               <p className="lead text-muted text-center">Welcome,{user.name}</p>
+               <p className="text-center">You have noy yet a profile,Please add some info</p>
+               <Link to="/create-profile" className="btn btn-lg btn-info text-center">
                Create Profile</Link>
                </div>
                
@@ -56,7 +61,7 @@ import ProfileActions from './ProfileActions';
         }
         return (
             <div className="dashboard">
-              <div className="container">
+              <div className="container text-center">
                <div className="row">
                  <div className="col-md-12">
                   <h1 className="dispaly-4">Dashboard</h1>

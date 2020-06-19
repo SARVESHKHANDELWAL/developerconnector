@@ -22,11 +22,14 @@ router.get('/',(req,res)=>{
         .then(post =>res.json(post))
         .catch (err =>res.status(404).json(err));
 });
+
 //@route GET api/post/:id
 //@desc Get posts by id
 //@access Public
+
 //so that the all post can be seen by all
 //@here we use params to grab the id of that user which in url
+
 router.get('/:id',(req,res)=>{
     //method to find it by id is important!
     Post.findById(req.params.id)
@@ -60,6 +63,7 @@ const newPost=new Post({
  //@route DELETE api/post/:id
 //@desc Delete Post
 //@access Private(by passport)
+
 router.delete('/:id',passport.authenticate('jwt',{session:false}),(req,res)=>{
 Profile.findOne({user:req.user.id})
 .then(profile=>{
@@ -82,6 +86,7 @@ Profile.findOne({user:req.user.id})
  //@route POST api/post/like/:id
 //@desc like Post
 //@access Private(by passport)
+
 router.post('/like/:id',passport.authenticate('jwt',{session:false}),(req,res)=>{
 Profile.findOne({user:req.user.id})
 .then(profile=>{
@@ -104,6 +109,7 @@ Profile.findOne({user:req.user.id})
 //@route POST api/post/unlike/:id
 //@desc unlike Post
 //@access Private(by passport)
+
 router.post('/unlike/:id',passport.authenticate('jwt',{session:false}),(req,res)=>{
 Profile.findOne({user:req.user.id})
 .then(profile=>{
@@ -190,4 +196,5 @@ Post.findById(req.params.id)
 })
 .catch(err=>res.status(404).json({postnotfound:'not found post'}))
 });
+
 module.exports=router;
