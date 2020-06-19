@@ -28,10 +28,10 @@ app.use('/api/users',users);
 
 //Server static assets if in prodution
 if(process.env.NODE_ENV==='production'){
-    app.use(express.static('client/build'))
+    app.use(express.static('client/build'));
     
     app.get('*',(res.req)=>{
-        res.sendfile(path.resolve(__dirname,'client','build','index.html'))
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
 }
 
